@@ -1,0 +1,403 @@
+body, html {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+
+.container {
+  width: 1170px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Estilos de las fuentes */
+
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("fonts/Poppins-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Poppins Semibold";
+  src: url("fonts/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Poppins Medium";
+  src: url("fonts/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Poppins Regular";
+  src: url("fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "BebasNeue Regular";
+  src: url("fonts/BebasNeue-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Poppins Light";
+  src: url("fonts/Poppins-Light.ttf");
+}
+
+h1 {
+  font-family: 'Poppins Bold', sans-serif;
+}
+
+h2 {
+  font-family: 'Poppins Semibold', sans-serif;
+}
+
+h3 {
+  font-family: 'Poppins Light', sans-serif;
+}
+
+p {
+  font-family: 'Poppins Regular', sans-serif;
+}
+
+a {
+  font-family: 'BebasNeue Regular', sans-serif;
+  text-decoration: none;
+}
+
+strong {
+  font-family: 'Poppins Semibold', sans-serif;
+}
+
+/* Estilos de separador de menú */
+
+.separador {
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin: 10px 0;
+  background: #2c3970;
+}
+
+
+/* Estilos del background del header */
+
+header {
+  z-index: 2;
+  overflow: hidden;
+}
+
+
+.background-header {
+  width: 100vw;
+  height: calc(100vh - 108px);
+  margin-top: 108px;
+}
+
+.background-header .container {
+  display: grid;
+  grid-template-areas: "texto imagen"
+                       "derechos derechos";
+  grid-template-columns: 42% 58%;
+  grid-template-rows: calc(100vh - 108px - 80px) auto;
+}
+
+
+.background-header .image {
+  grid-area: imagen;
+  width: 100%;
+}
+
+.background-header .image img {
+  height: 100%;
+  margin-left: 25%;
+}
+
+.background-header .text {
+  grid-area: texto;
+  text-transform: uppercase;
+  font-size: 48px;
+  color: #2c3970;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-header h1 {
+  text-align: center;
+}
+
+.background-header .derechos {
+  grid-area: derechos;
+  text-align: center;
+  color: #2c3970;
+}
+
+.descripcion p {
+  font-size: 20px;
+  text-transform: none;
+}
+
+.descripcion p:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+
+.descripcion p.rest {
+  text-align: center;
+}
+
+/* Estilos del menú principal */
+
+.menu-principal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 108px;
+  padding-bottom: 4px;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+@-moz-document url-prefix() {
+  .menu-principal {
+  background: rgba(255, 255, 255, 0.97);
+  }
+}
+
+
+.menu-principal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  fill: blur(8px);
+}
+
+.menu-principal.scroll {
+  height: 74px;
+}
+
+.menu-principal .container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-rows: 100%;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.menu-principal .container::after{
+  content: '';
+  height: 4px;
+  position: absolute;
+  left: 0;
+  right:0;
+  bottom: 0;
+  background: linear-gradient(to right, #008c45 0%,#008c45 33%,#f4f5f0 33%,#f4f5f0 66%,#cd212a 66%,#cd212a 100%);
+}
+
+.menu-principal .botones-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.botones-redes {
+  display: flex;
+  flex-direction: row;
+}
+
+.boton-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton-menu a {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  color: #2c3970;
+  border: 3px solid #2c3970;
+  border-radius: 25px;
+  height: 25px;
+  padding: 8px 10px 10px 10px;
+  letter-spacing: 0;
+  overflow: hidden;
+  transition: letter-spacing 0.25s ease-in-out, color 0.25s ease-in-out, background 0s ease-in-out 0s;
+}
+
+.boton-menu:not(:last-child) {
+  margin-right: 20px;
+}
+
+.boton-menu a::before, .boton-ordenar a::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #2c3970;
+  transition: all 0.25s ease-in-out;
+}
+
+.boton-menu a:hover, .boton-ordenar a:hover {
+  color: #ffffff;
+  background: #2c3970;
+  transition: letter-spacing 0.25s ease-in-out, color 0.25s ease-in-out, background 0s ease-in-out 0.25s;
+}
+
+.boton-menu a:hover::before {
+  width: 100%;
+}
+
+.logo-menu {
+  width: 100%;
+  height: 100%;
+}
+
+.logo-menu a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-menu img {
+  height: calc(100% - 16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0px 10px 0px;
+}
+
+.boton-ordenar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.boton-ordenar a {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 0.25em;
+  font-size: 18px;
+  color: #2c3970;
+  border: 3px solid #2c3970;
+  border-radius: 29px;
+  padding: 8px;
+  margin-right: 24px;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out;
+}
+
+.boton-ordenar a span:first-child {
+  font-size: 36px;
+}
+
+
+.boton-ordenar a:hover::before {
+  width: 100%;
+}
+
+.boton-menu-responsive {
+  display: none;
+  color: #2c3970;
+  font-size: 44px;
+  align-items: center;
+}
+
+.boton-menu-responsive span {
+  cursor: pointer;
+}
+
+
+@media (max-width: 1200px) {
+
+  .container {
+      width: 970px;
+  }
+
+}
+
+
+@media (max-width: 992px) {
+
+  .container {
+      width: 750px;
+  }
+
+  .menu-principal .botones-menu.show {
+    left: 0;
+  }
+
+  .menu-principal.scroll .botones-menu {
+    top: 78px;
+  }
+
+  .background-header .text {
+    font-size: 36px;
+  }
+  
+  .background-header .image img {
+  margin-left: 10%;
+  }
+
+}
+
+
+@media (max-width: 780px) {
+
+  .container {
+      width: calc(100% - 40px);
+  }
+
+  .menu-principal {
+    height: 74px;
+  }
+
+  .boton-ordenar .texto-ordenar {
+    display: none;
+  }
+
+  .boton-ordenar a {
+    margin-right: 0;
+  }
+
+  .background-header .container {
+    grid-template-areas: "texto"
+                         "imagen"
+                         "derechos";
+    grid-template-columns: 100%;
+    grid-template-rows: 0.5fr 0.4fr 0.1fr;
+    grid-gap: 30px;
+  }
+
+  .background-header {
+    width: 100vw;
+    height: auto;
+    margin-top: 98px;
+  }
+
+  .background-header h1 {
+    font-size: 35px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .background-header .image img {
+    width: 100%;
+  }
+
+
+}
