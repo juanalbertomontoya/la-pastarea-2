@@ -26,11 +26,6 @@ body, html {
 }
 
 @font-face {
-  font-family: "Poppins Medium";
-  src: url("fonts/Poppins-Medium.ttf");
-}
-
-@font-face {
   font-family: "Poppins Regular";
   src: url("fonts/Poppins-Regular.ttf");
 }
@@ -38,11 +33,6 @@ body, html {
 @font-face {
   font-family: "BebasNeue Regular";
   src: url("fonts/BebasNeue-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Poppins Light";
-  src: url("fonts/Poppins-Light.ttf");
 }
 
 h1 {
@@ -53,9 +43,6 @@ h2 {
   font-family: 'Poppins Semibold', sans-serif;
 }
 
-h3 {
-  font-family: 'Poppins Light', sans-serif;
-}
 
 p {
   font-family: 'Poppins Regular', sans-serif;
